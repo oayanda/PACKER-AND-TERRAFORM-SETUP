@@ -1,5 +1,3 @@
-# -----  Compute/variable.tf ------
-
 variable "subnets-compute" {
     description = "public subnetes for compute instances"
 }
@@ -28,4 +26,3 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
-

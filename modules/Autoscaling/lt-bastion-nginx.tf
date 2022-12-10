@@ -1,11 +1,8 @@
-#### launch template for bastion
 
-resource "random_shuffle" "az_list" {
-  input = data.aws_availability_zones.available.names
-}
+# launch template for bastion
 
 resource "aws_launch_template" "bastion-launch-template" {
- image_id               = var.ami-bastion
+  image_id               = var.ami-bastion
   instance_type          = "t2.micro"
   vpc_security_group_ids = var.bastion-sg
 
@@ -26,22 +23,24 @@ resource "aws_launch_template" "bastion-launch-template" {
   tag_specifications {
     resource_type = "instance"
 
-    tags = merge(
-      var.tags,
-      {
-        Name = "bastion-launch-template"
-      },
-    )
+
+  tags = merge(
+    var.tags,
+    {
+      Name = "bastion-launch-template"
+    },
+  )
+    
   }
 
-  user_data = filebase64("${path.module}/bastion.sh")
+  # user_data = filebase64("${path.module}/bastion.sh")
 }
 
 
 # launch template for nginx
 
 resource "aws_launch_template" "nginx-launch-template" {
-   image_id               = var.ami-nginx
+  image_id               = var.ami-nginx
   instance_type          = "t2.micro"
   vpc_security_group_ids = var.nginx-sg
 
@@ -62,13 +61,13 @@ resource "aws_launch_template" "nginx-launch-template" {
   tag_specifications {
     resource_type = "instance"
 
-    tags = merge(
-      var.tags,
-      {
-        Name = "nginx-launch-template"
-      },
-    )
+  tags = merge(
+    var.tags,
+    {
+      Name = "nginx-launch-template"
+    },
+  )
   }
 
-  user_data = filebase64("${path.module}/nginx.sh")
+  # user_data = filebase64("${path.module}/nginx.sh")
 }

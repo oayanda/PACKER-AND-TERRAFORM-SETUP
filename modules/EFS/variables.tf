@@ -1,4 +1,3 @@
-# --------EFS/variable.tf ------------
 variable "efs-subnet-2" {
   description = "Second subnet for the mount target"
 }

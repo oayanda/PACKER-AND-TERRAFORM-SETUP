@@ -1,9 +1,9 @@
 variable "region" {
-  default = "us-east-1"
+  default = "eu-west-1"
 }
 
 variable "vpc_cidr" {
-  default = "10.0.0.0/16"
+  default = "172.16.0.0/16"
 }
 
 variable "enable_dns_support" {
@@ -14,18 +14,27 @@ variable "enable_dns_hostnames" {
   default = "true"
 }
 
+variable "enable_classiclink" {
+  default = "false"
+}
+
+variable "enable_classiclink_dns_support" {
+  default = "false"
+}
+
 variable "preferred_number_of_public_subnets" {
-  # default = number
+  type        = number
   description = "Number of public subnets"
 }
+
 variable "preferred_number_of_private_subnets" {
-  # default = number
+  type        = number
   description = "Number of private subnets"
 }
 
 variable "name" {
   type    = string
-  default = "oayanda"
+  default = "ACS"
 
 }
 
@@ -35,32 +44,37 @@ variable "tags" {
   default     = {}
 }
 
-variable "ami-web" {
+variable "environment" {
   type        = string
-  description = "AMI for lunch template"
-
+  description = "Enviroment"
 }
 
 variable "ami-bastion" {
   type        = string
-  description = "AMI for lunch template"
+  description = "AMI ID for the launch template"
+}
 
+
+variable "ami-web" {
+  type        = string
+  description = "AMI ID for the launch template"
 }
 
 
 variable "ami-nginx" {
   type        = string
-  description = "AMI for lunch template"
-
+  description = "AMI ID for the launch template"
 }
+
+
+# variable "ami-sonar" {
+#   type        = string
+#   description = "AMI ID for the launch template"
+# }
+
 variable "keypair" {
-  type = string
-
-}
-
-variable "environment" {
   type        = string
-  description = "Enviroment"
+  description = "key pair for the instances"
 }
 
 variable "account_no" {

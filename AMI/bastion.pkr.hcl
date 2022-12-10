@@ -11,14 +11,13 @@ locals {
 # source blocks are generated from your builders; a source can be referenced in
 # build blocks. A build block runs provisioners and post-processors on a
 # source.
-
 source "amazon-ebs" "terraform-bastion-prj-19" {
   ami_name      = "terraform-bastion-prj-19-${local.timestamp}"
   instance_type = "t2.micro"
   region        = var.region
   source_ami_filter {
     filters = {
-      name                = "RHEL-SAP-8.1.0_HVM-20211007-x86_64-0-Hourly2-GP2"
+      name                = "RHEL-8.2.0_HVM-20210907-x86_64-0-Hourly2-GP2"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }

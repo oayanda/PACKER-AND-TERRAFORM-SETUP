@@ -1,5 +1,3 @@
-# -----  ALB/variable.tf ------
-
 # The security froup for external loadbalancer
 variable "public-sg" {
   description = "Security group for external load balancer"
@@ -51,7 +49,7 @@ variable "tags" {
 
 
 variable "name" {
-  type        = string
-  description = "name of the loadbalancer"
-
+    type = string
+    description = "name of the loadbalancer"
+  
 }

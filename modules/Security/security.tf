@@ -1,5 +1,3 @@
-# --------Security/security.tf ------------
-
 # creating dynamic ingress security groups
 locals {
   security_groups = {
@@ -39,8 +37,13 @@ locals {
     datalayer-sg = {
       name        = "datalayer-sg"
       description = "data layer security group"
-
-
+    }
+    
+    compute-sg = {
+      name        = "compute-sg"
+      description = "compute security group"
     }
   }
 }
+
+

@@ -1,5 +1,3 @@
-# -------- Compute/main.tf ------------
-
 # create instance for jenkins
 resource "aws_instance" "Jenkins" {
   ami                         = var.ami-jenkins
@@ -12,7 +10,7 @@ resource "aws_instance" "Jenkins" {
  tags = merge(
     var.tags,
     {
-      Name = "oayanda-Jenkins"
+      Name = "ACS-Jenkins"
     },
   )
 }
@@ -31,7 +29,7 @@ resource "aws_instance" "sonbarqube" {
    tags = merge(
     var.tags,
     {
-      Name = "oayanda-sonbarqube"
+      Name = "ACS-sonarqube"
     },
   )
 }
@@ -49,7 +47,7 @@ resource "aws_instance" "artifactory" {
   tags = merge(
     var.tags,
     {
-      Name = "oayanda-artifactory"
+      Name = "ACS-artifactory"
     },
   )
 }
