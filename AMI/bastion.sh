@@ -16,12 +16,13 @@ sudo echo "export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/t
 source ~/.bash_profile
 
 # clone the Ansible repo
-git clone https://github.com/darey-devops/PBL-project-19.git
+git clone https://github.com/oayanda/PACKER-AND-TERRAFORM-SETUP.git
 
 
 # install botocore, ansible and awscli
+sudo yum install python3-pip -y
 sudo python3 -m pip install boto
-sudo python3 -m pip install boto3
+sudo pip3.9 install boto3
 sudo python3 -m pip install PyMySQL
 sudo python3 -m pip install mysql-connector-python
 sudo python3 -m pip install --upgrade setuptools
